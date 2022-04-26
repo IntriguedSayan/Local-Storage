@@ -1,0 +1,28 @@
+#navbar{
+    display:flex;
+    height: 70px;
+    background-color: blue;
+    font-size: 30px;
+    justify-content: space-between;
+    margin-bottom: 60px;
+}
+a{
+
+    text-decoration: none;
+    color:white
+
+}
+#container{
+
+    display:grid;
+    grid-template-columns: repeat(4,1fr);
+    grid-template-rows: auto;
+    gap:20px;
+
+}
+p+img{
+
+    height:60px;
+
+
+}
