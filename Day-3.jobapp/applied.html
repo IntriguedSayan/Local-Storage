@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Database</title>
+    <link rel="stylesheet" href="commonStyles.css" />
+  </head>
+
+  <body>
+    <div id="links">
+      <div><a href="index.html">Home</a></div>
+      <div><a href="applied.html">Applied Jobs</a></div>
+      <div><a href="bookmark.html">Bookmarks</a></div>
+    </div>
+
+    <main>
+      <table>
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Job applied</th>
+            <th>Salary expected</th>
+            <th>Add to bookmark</th>
+          </tr>
+        </thead>
+        <tbody id="body">
+          <!-- Append your output to tbody -->
+        </tbody>
+      </table>
+    </main>
+  </body>
+  <script>
+    //you need to code here
+    var personArr=JSON.parse(localStorage.getItem("PersonData"))
+    console.log(personArr)
+    
+    var bookmarkArr=JSON.parse(localStorage.getItem("bookmarks")) || []
+
+    displayData(personArr)
+
+    function displayData(Arr){
+
+      Arr.forEach(function(elem){
+        
+        var TR=document.createElement("tr")
+
+        var TD1=document.createElement("td")
+        TD1.innerText=elem.pName
+
+        var TD2=document.createElement("td")
+        TD2.innerText=elem.pEmail
+
+        var TD3=document.createElement("td")
+        TD3.innerText=elem.pRole
+
+        var TD4=document.createElement("td")
+        TD4.innerText=elem.pSalary
+
+        var TD5=document.createElement("td")
+        TD5.innerText="Bookmark"
+        TD5.style.color="blue"
+        TD5.style.cursor="pointer"
+        TD5.addEventListener("click",function(){
+
+
+          bookmarkFun(elem)
+        })
+        TR.append(TD1,TD2,TD3,TD4,TD5)
+        document.querySelector("tbody").append(TR)
+
+
+      });
+ }
+ 
+ function bookmarkFun(elem){
+
+
+
+bookmarkArr.push(elem)
+console.log(bookmarkArr)
+localStorage.setItem("bookmarks",JSON.stringify(bookmarkArr))
+
+}
+
+
+
+
+
+
+
+  </script>
+</html>
