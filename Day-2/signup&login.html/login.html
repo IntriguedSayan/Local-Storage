@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+
+        h1{
+            margin:20px;
+        }
+
+    </style>
+</head>
+<body>
+    <h1>Log In</h1>
+   <form id="form">
+    <input type="text" id="email" placeholder="Enter Your Email"/>
+    
+    <input type="text" id="password" placeholder="Enter Your Password">
+    <input type="submit" value="Log In"/>
+   </form>
+   
+    
+    
+</body>
+</html>
+<script>
+    
+   var signupArr=JSON.parse(localStorage.getItem("formDetails")) 
+   
+   
+   document.querySelector("form").addEventListener("submit",login)
+       
+        // var loginArr=JSON.parse(localStorage.getItem("loginData")) || []
+        // var loginObj={
+
+        //     email:Emailid,
+        //     password1:Password
+        // }
+        // loginArr.push(loginObj)
+        // localStorage.setItem("loginData",JSON.stringify(loginArr))
+    function login(){
+        event.preventDefault()
+        var Emailid=form.email.value
+
+        var Password=form.password.value
+        var obj={
+            email1:Emailid,
+            pass:Password
+        }
+        console.log(obj)
+     showData(signupArr,obj)  
+       
+    }
+
+    function showData(signupArr,obj){
+       
+       
+       
+         for(let i=0;i<signupArr.length;i++)
+            {
+                if(obj.email1===signupArr[i].Email && obj.pass===signupArr[i].Key)
+                {alert("Log In Successful")}
+
+                else
+                {alert("Wrong Credentials")}
+            
+            }
+
+
+
+
+    }
+
+
+
+
+
+
+
+</script>
