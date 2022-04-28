@@ -1,0 +1,38 @@
+#navbar{
+
+    display: flex;
+    justify-content: space-between;
+    background-color: aquamarine;
+    position: sticky;
+    top:10px;
+
+}
+
+#user{
+
+    display: flex;
+    justify-content: space-between;
+    gap: 8px;
+}
+.products{
+
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    grid-template-rows: auto;
+    gap: 20px;
+
+
+}
+.strikePrice{
+
+    display: flex;
+    /* justify-content: space-around; */
+    gap: 18px;
+
+
+}
+
+.strikePrice p{
+
+    text-decoration: line-through;
+}
