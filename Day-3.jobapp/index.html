@@ -9,50 +9,51 @@
   </head>
 
   <body>
+    <!-- Navbar -->
     <div id="links">
       <div><a href="index.html">Home</a></div>
       <div><a href="applied.html">Applied Jobs</a></div>
       <div><a href="bookmark.html">Bookmarks</a></div>
     </div>
-    <form action="" id="form">
+    <form id="form">
       <h2>Enter Your Application Details</h2>
-      <input placeholder="Enter Name" id="name" name="name" type="text" />
-      <input placeholder="Enter email" type="email" name="email" id="email" />
-      <select name="role" id="role">
+      <input placeholder="Enter Name" id="name" type="text" />
+      <input placeholder="Enter email" type="email" id="email" />
+      <select id="role">
         <option value="FSD">FSD</option>
         <option value="Backend">Backend</option>
         <option value="Frontend">Frontend</option>
       </select>
-      <input id="salary"
+      <input
+        id="salary"
         type="number"
         placeholder="Enter expected salary in lakhs per annum "
       />
-      <input id="submit" type="submit" name="submit" value="Submit" />
+      <input id="submit" type="submit" value="Submit" />
     </form>
   </body>
   <script>
     //you need to code here
-    document.querySelector("form").addEventListener("submit",jobFun)
 
-    var jobArr=JSON.parse(localStorage.getItem("PersonData")) || []
+    document.querySelector("#form").addEventListener("submit", jobSubmit);
+    var jobArr = JSON.parse(localStorage.getItem("jobList")) || [];
 
-    function jobFun(){
+    function jobSubmit() {
+      event.preventDefault();
 
-      event.preventDefault()
+      // formId.inputId.value
 
-      var jobObj={
-
-        pName:form.name.value,
-        pEmail:form.email.value,
-        pRole:form.role.value,
-        pSalary:form.salary.value
-
-      }
-      jobArr.push(jobObj)
-      console.log(jobArr)
-      localStorage.setItem("PersonData",JSON.stringify(jobArr))
-      window.location.href="applied.html"
+      var jobObj = {
+        personName: document.querySelector("#name").value,
+        personEmail: form.email.value,
+        personRole: form.role.value,
+        personSalary: form.salary.value,
+      };
+      jobArr.push(jobObj);
+      console.log(jobArr);
+      localStorage.setItem("jobList", JSON.stringify(jobArr));
+      // redirect to applied jobs
+      window.location.href = "applied.html";
     }
-    
   </script>
 </html>
